@@ -1,0 +1,47 @@
+﻿@model ETicaretMVC.Models.Kullanici
+
+@{
+    ViewBag.Title = "AdresSecimi";
+}
+
+<h2>Adres Seçimi</h2>
+
+    @if (@ViewBag.AdresIs != null)
+    {
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        Ev
+                    </td>
+                    <td>
+                        <input type="button" value="Seç" onclick="location.href = '@(Url.Action("SiparisOnay", "Urun", new { Id = 1 }))'" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        İs
+                    </td>
+                    <td>
+                        <input type="button" value="Seç" onclick="location.href = '@(Url.Action("SiparisOnay", "Urun", new { Id = 2 }))'" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        Ev
+                    </td>
+                    <td>
+                        <input type="button" value="Seç" onclick="location.href = '@(Url.Action("SiparisOnay", "Urun", new { Id = 1 }))'" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    }
+

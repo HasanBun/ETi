@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        li:hover {
+            background-color: #0066FF;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#0099FF;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Anasayfa", "Anasayfa", "Urun", new { area = "" }, new { @class = "navbar-brand", @style = "color:white;" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Bilgisayar", "Kategori", "Urun", new { id = 1 }, new { @style = "color:white; font-weight:bold;" })</li>
+                    <li>@Html.ActionLink("Cep Telefonu", "Kategori", "Urun", new { id = 2 }, new { @style = "color:white; font-weight:bold;" })</li>
+                    <li>@Html.ActionLink("Televizyon", "Kategori", "Urun", new { id = 3 }, new { @style = "color:white; font-weight:bold;" })</li>
+                    <li>@Html.ActionLink("Beyaz Eşya", "Kategori", "Urun", new { id = 4 }, new { @style = "color:white; font-weight:bold;" })</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

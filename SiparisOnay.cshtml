@@ -1,0 +1,41 @@
+﻿@model System.Data.DataTable
+@using System.Data;
+
+@{
+    ViewBag.Title = "Sepet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sepet</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            @foreach (DataColumn col in Model.Columns)
+            {
+                <th>@col.ColumnName</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataRow row in Model.Rows)
+        {
+            <tr>
+                @foreach (DataColumn col in Model.Columns)
+                {
+                    <td>@row[col.ColumnName]</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<h4>ToplamTutar</h4>
+@ViewBag.Toplam TL
+<br />
+<h1>Adres</h1>
+@ViewBag.Adres
+<br />
+<br />
+<input type="button" value="Siparisi Tamamla" onclick="location.href = '@(Url.Action("SiparisiTamamla", "Urun",new { Adres = ViewBag.Adres }))'" />
+

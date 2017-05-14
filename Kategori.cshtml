@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ETicaretMVC.Models.Urun>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<style>
+    .over {
+    }
+
+    td {
+        height: 40px;
+        cursor: pointer;
+    }
+
+    tr.over:hover {
+        background-color: lightgray;
+    }
+</style>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="over" onclick="location.href = '@(Url.Action("Detay", "Urun", new { id = item.Id }))'">
+        <td>
+            @Html.DisplayFor(modelItem => item.Ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fiyat)
+        </td>
+    </tr>
+}
+
+</table>

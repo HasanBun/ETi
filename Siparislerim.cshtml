@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ETicaretMVC.Models.Siparis>
+
+@{
+    ViewBag.Title = "Siparislerim";
+}
+
+<h2>Siparislerim</h2>
+
+@if (ViewBag.Mesaj == null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="over">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fiyat)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    <h4>Toplam Tutar</h4>
+    <h4>@ViewBag.Toplam TL</h4>
+}
+else
+{
+    <h1>@ViewBag.Mesaj</h1>
+}
+

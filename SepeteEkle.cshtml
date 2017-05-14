@@ -1,0 +1,57 @@
+﻿@model System.Data.DataTable
+@using System.Data;
+
+@{
+    ViewBag.Title = "SepeteEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SepeteEkle</h2>
+<style>
+    .over {
+    }
+
+    td {
+        width: 250px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    tr.over:hover {
+        background-color: lightgray;
+    }
+</style>
+
+<table class="table">
+    <thead>
+        <tr>
+            @foreach (DataColumn col in Model.Columns)
+            {
+                <th>@col.ColumnName</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataRow row in Model.Rows)
+        {
+            <tr class="over">
+                @foreach (DataColumn col in Model.Columns)
+                {
+                    <td>@row[col.ColumnName]</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<h4>ToplamTutar</h4>
+@ViewBag.Toplam TL
+<br />
+<input type="button" value="Sepeti Onayla" onclick="location.href = '@(Url.Action("AdresSecimi", "Urun"))'" />
+
+
+
+
+
+
+

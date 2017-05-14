@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Session["KullaniciAdi"] != null)
+{
+    <ul class="nav navbar-nav navbar-right" style="color:white; font-weight:bold;">
+        <li>
+            @Html.ActionLink("Siparislerim" + " ", "Siparislerim", "Urun")
+        </li>
+        <li>
+            @Html.ActionLink(Session["KullaniciAdi"] + " ", "KullanıcıBilgisi", "Uye")
+        </li>
+        <li>
+            @Html.ActionLink("Çıkış" + " ", "Cıkıs", "Uye")
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right" style="color:white; font-weight:bold;">
+        <li>@Html.ActionLink("Yeni Kullanıcı", "KullaniciEkle", "Uye")</li>
+        <li>@Html.ActionLink("Giriş Yap", "KullaniciGirisYap", "Uye")</li>
+    </ul>
+}
